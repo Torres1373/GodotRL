@@ -1,2 +1,2 @@
-# GodotRL
+# Labyrinth-of-Daedalus
 Coming Soon
