@@ -1,2 +1,2 @@
-# Labyrinth-of-Daedalus
+# Labyrinth of Daedalus
 Coming Soon
