@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://bf1gyd76cw2lh"]
+[gd_scene load_steps=31 format=3 uid="uid://bf1gyd76cw2lh"]
 
 [ext_resource type="PackedScene" uid="uid://bpse1dq6snvm1" path="res://Characters/Character.tscn" id="1_pt7tq"]
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="2_5cept"]
 [ext_resource type="Texture2D" uid="uid://cddw26tugvlrf" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/icaro_idle_spritesheet.png" id="2_pmhp2"]
 [ext_resource type="Script" path="res://Characters/Player/FiniteStateMachine.gd" id="3_2x7py"]
 [ext_resource type="Texture2D" uid="uid://b7toqoa1m737m" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/icaro_run_spritesheet.png" id="3_6jmwr"]
+[ext_resource type="Texture2D" uid="uid://b5cin287vhah8" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/icaro_jump_spritesheet.png" id="5_nm5of"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thov0"]
 atlas = ExtResource("2_pmhp2")
@@ -29,6 +30,30 @@ region = Rect2(19, 4, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_h2ttt"]
 atlas = ExtResource("2_pmhp2")
 region = Rect2(3, 4, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qahkg"]
+atlas = ExtResource("5_nm5of")
+region = Rect2(1, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qld01"]
+atlas = ExtResource("5_nm5of")
+region = Rect2(17, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56h2t"]
+atlas = ExtResource("5_nm5of")
+region = Rect2(33, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf7iu"]
+atlas = ExtResource("5_nm5of")
+region = Rect2(49, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtjeg"]
+atlas = ExtResource("5_nm5of")
+region = Rect2(65, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa7nh"]
+atlas = ExtResource("5_nm5of")
+region = Rect2(81, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_32c6l"]
 atlas = ExtResource("3_6jmwr")
@@ -77,6 +102,29 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qahkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qld01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56h2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf7iu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtjeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa7nh")
+}],
+"loop": true,
+"name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -188,10 +236,39 @@ tracks/1/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_rs5n2"]
+resource_name = "jump"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"jump"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f2kig"]
 _data = {
 "RESET": SubResource("Animation_ojsiq"),
 "idle": SubResource("Animation_2pegp"),
+"jump": SubResource("Animation_rs5n2"),
 "move": SubResource("Animation_0xk3v")
 }
 
