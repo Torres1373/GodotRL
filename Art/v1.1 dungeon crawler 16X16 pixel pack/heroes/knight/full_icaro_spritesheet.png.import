@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cofayvw6kjw00"
-path="res://.godot/imported/weapon_sword_1.png-b4d46bb6c7c12fefab7df16003b9be94.ctex"
+uid="uid://yci58ipy5306"
+path="res://.godot/imported/full_icaro_spritesheet.png-5fa090ca96d7b1ba4af5b54c232e61d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/weapon_sword_1.png"
-dest_files=["res://.godot/imported/weapon_sword_1.png-b4d46bb6c7c12fefab7df16003b9be94.ctex"]
+source_file="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/full_icaro_spritesheet.png"
+dest_files=["res://.godot/imported/full_icaro_spritesheet.png-5fa090ca96d7b1ba4af5b54c232e61d7.ctex"]
 
 [params]
 
