@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bf1gyd76cw2lh"]
+[gd_scene load_steps=37 format=3 uid="uid://bf1gyd76cw2lh"]
 
 [ext_resource type="PackedScene" uid="uid://bpse1dq6snvm1" path="res://Characters/Character.tscn" id="1_pt7tq"]
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="2_5cept"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Characters/Player/FiniteStateMachine.gd" id="3_2x7py"]
 [ext_resource type="Texture2D" uid="uid://b7toqoa1m737m" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/icaro_run_spritesheet.png" id="3_6jmwr"]
 [ext_resource type="Texture2D" uid="uid://b5cin287vhah8" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/icaro_jump_spritesheet.png" id="5_nm5of"]
+[ext_resource type="Texture2D" uid="uid://b3uu18ltm2jpn" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/weapon_kopis_1.png" id="7_kjaob"]
+[ext_resource type="Texture2D" uid="uid://baatxewy4nyxw" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_spritesheet.png" id="8_bogec"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thov0"]
 atlas = ExtResource("2_pmhp2")
@@ -151,6 +153,123 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qxa5h"]
+radius = 4.0
+height = 12.0
+
+[sub_resource type="Animation" id="Animation_mlpoq"]
+resource_name = "attack"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwordSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 1.5708, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlashSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SlashSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_u26x3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwordSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlashSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SlashSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jat2l"]
+_data = {
+"RESET": SubResource("Animation_u26x3"),
+"attack": SubResource("Animation_mlpoq")
+}
+
+[sub_resource type="Animation" id="Animation_ojsiq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"move"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_2pegp"]
 resource_name = "idle"
 length = 0.6
@@ -162,10 +281,38 @@ tracks/0/path = NodePath("../AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.6),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_rs5n2"]
+resource_name = "jump"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"jump"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -209,61 +356,6 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_ojsiq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"move"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_rs5n2"]
-resource_name = "jump"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"jump"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f2kig"]
 _data = {
 "RESET": SubResource("Animation_ojsiq"),
@@ -273,6 +365,8 @@ _data = {
 }
 
 [node name="Player" instance=ExtResource("1_pt7tq")]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("2_5cept")
 
 [node name="FiniteStateMachine" parent="." index="0"]
@@ -283,7 +377,31 @@ scale = Vector2(1.044, 1)
 sprite_frames = SubResource("SpriteFrames_hdk06")
 animation = &"move"
 
-[node name="AnimationPlayer" parent="." index="3"]
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CapsuleShape2D_qxa5h")
+
+[node name="Sword" type="Node2D" parent="." index="3"]
+
+[node name="SwordSprite" type="Node2D" parent="Sword" index="0"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sword/SwordSprite" index="0"]
+position = Vector2(3, -11)
+rotation = -2.35619
+texture = ExtResource("7_kjaob")
+offset = Vector2(6, -5)
+
+[node name="SwordAnimationPlayer" type="AnimationPlayer" parent="Sword" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_jat2l")
+}
+
+[node name="SlashSprite" type="Sprite2D" parent="Sword" index="2"]
+visible = false
+position = Vector2(17, 0)
+texture = ExtResource("8_bogec")
+hframes = 3
+
+[node name="AnimationPlayer" parent="." index="4"]
 libraries = {
 "": SubResource("AnimationLibrary_f2kig")
 }

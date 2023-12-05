@@ -19,18 +19,21 @@ func _get_transition() -> int:
 		states.idle:
 			if parent.velocity.length() > 10:
 				return states.move
-			#if Input.is_action_pressed("ui_jump") and parent.is_on_floor():
-				#return states.jump
+			if Input.is_action_just_pressed("ui_jump") and not parent.isJumping and not parent.isAttacking:
+				parent.isJumping = true
+				return states.jump
 		states.move:
 			if parent.velocity.length() < 10:
 				return states.idle
-			#if Input.is_action_pressed("ui_jump") and parent.is_on_floor():
-				#return states.jump
-		#states.jump:
-			#if parent.velocity.length() < 10 and parent.is_on_floor():
-				#return states.idle
-			#elif parent.velocity.length() > 10 and parent.is_on_floor():
-				#return states.move
+			if Input.is_action_just_pressed("ui_jump") and not parent.isJumping and not parent.isAttacking:
+				parent.isJumping = true
+				return states.jump
+		states.jump:
+			if parent.velocity.length() < 10 and not parent.isJumping:
+				return states.idle
+			elif parent.velocity.length() > 10 and not parent.isJumping:
+				return states.move
+
 	return -1
 
 func _enter_state(_previous_state: int, _new_state: int) -> void:
@@ -41,3 +44,6 @@ func _enter_state(_previous_state: int, _new_state: int) -> void:
 			animation_player.play("move")
 		states.jump:
 			animation_player.play("jump")
+			await animation_player.animation_finished
+			parent.isJumping = false
+			
