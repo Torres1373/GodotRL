@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5cin287vhah8"
-path="res://.godot/imported/icaro_jump_spritesheet.png-d9353c213e0c6f5438f4fbf5ab922bbc.ctex"
+uid="uid://b66kbkhxfcig2"
+path="res://.godot/imported/slime_full_spritesheet.png-c1d8f09207124e0a9a4ee5b851874c3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/icaro_jump_spritesheet.png"
-dest_files=["res://.godot/imported/icaro_jump_spritesheet.png-d9353c213e0c6f5438f4fbf5ab922bbc.ctex"]
+source_file="res://Art/Self/Enemies/slime_full_spritesheet.png"
+dest_files=["res://.godot/imported/slime_full_spritesheet.png-c1d8f09207124e0a9a4ee5b851874c3c.ctex"]
 
 [params]
 

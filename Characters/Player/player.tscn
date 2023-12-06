@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bpse1dq6snvm1" path="res://Characters/Character.tscn" id="1_pt7tq"]
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="2_5cept"]
-[ext_resource type="Texture2D" uid="uid://cddw26tugvlrf" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/icaro_idle_spritesheet.png" id="2_pmhp2"]
+[ext_resource type="Texture2D" uid="uid://cddw26tugvlrf" path="res://Art/Self/Icarus/icaro_idle_spritesheet.png" id="2_pmhp2"]
 [ext_resource type="Script" path="res://Characters/Player/FiniteStateMachine.gd" id="3_2x7py"]
-[ext_resource type="Texture2D" uid="uid://b7toqoa1m737m" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/icaro_run_spritesheet.png" id="3_6jmwr"]
-[ext_resource type="Texture2D" uid="uid://b5cin287vhah8" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/icaro_jump_spritesheet.png" id="5_nm5of"]
-[ext_resource type="Texture2D" uid="uid://b3uu18ltm2jpn" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/weapon_kopis_1.png" id="7_kjaob"]
+[ext_resource type="Texture2D" uid="uid://b7toqoa1m737m" path="res://Art/Self/Icarus/icaro_run_spritesheet.png" id="3_6jmwr"]
+[ext_resource type="Texture2D" uid="uid://b5cin287vhah8" path="res://Art/Self/Icarus/icaro_jump_spritesheet.png" id="5_nm5of"]
+[ext_resource type="Texture2D" uid="uid://b3uu18ltm2jpn" path="res://Art/Self/Weapons/weapon_kopis_1.png" id="7_kjaob"]
 [ext_resource type="Texture2D" uid="uid://baatxewy4nyxw" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_spritesheet.png" id="8_bogec"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thov0"]
@@ -157,6 +157,45 @@ animations = [{
 radius = 4.0
 height = 12.0
 
+[sub_resource type="Animation" id="Animation_u26x3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwordSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlashSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SlashSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_mlpoq"]
 resource_name = "attack"
 length = 0.5
@@ -196,45 +235,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
-}
-
-[sub_resource type="Animation" id="Animation_u26x3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SwordSprite:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SlashSprite:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SlashSprite:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jat2l"]

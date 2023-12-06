@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7toqoa1m737m"
-path="res://.godot/imported/icaro_run_spritesheet.png-1775295960a29ded8aecb0c941c73508.ctex"
+uid="uid://criakiftubkte"
+path="res://.godot/imported/weapon_zeus_1.png-2372c52c094712517d4ae2190ac975ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/icaro_run_spritesheet.png"
-dest_files=["res://.godot/imported/icaro_run_spritesheet.png-1775295960a29ded8aecb0c941c73508.ctex"]
+source_file="res://Art/Self/Weapons/weapon_zeus_1.png"
+dest_files=["res://.godot/imported/weapon_zeus_1.png-2372c52c094712517d4ae2190ac975ba.ctex"]
 
 [params]
 

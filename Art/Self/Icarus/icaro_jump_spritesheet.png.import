@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3uu18ltm2jpn"
-path="res://.godot/imported/weapon_kopis_1.png-6c5841b49c2ecf23ca3f334bc8e5b4a7.ctex"
+uid="uid://b5cin287vhah8"
+path="res://.godot/imported/icaro_jump_spritesheet.png-9ea567d16338e194c6ea320253772bd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/weapon_kopis_1.png"
-dest_files=["res://.godot/imported/weapon_kopis_1.png-6c5841b49c2ecf23ca3f334bc8e5b4a7.ctex"]
+source_file="res://Art/Self/Icarus/icaro_jump_spritesheet.png"
+dest_files=["res://.godot/imported/icaro_jump_spritesheet.png-9ea567d16338e194c6ea320253772bd0.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

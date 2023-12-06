@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://criakiftubkte"
-path="res://.godot/imported/weapon_zeus_1.png-7079a816c819c96f5252bbeaa23e7f19.ctex"
+uid="uid://b3uu18ltm2jpn"
+path="res://.godot/imported/weapon_kopis_1.png-cedeb69d6c089e4ff530d8e8810b81e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/weapon_zeus_1.png"
-dest_files=["res://.godot/imported/weapon_zeus_1.png-7079a816c819c96f5252bbeaa23e7f19.ctex"]
+source_file="res://Art/Self/Weapons/weapon_kopis_1.png"
+dest_files=["res://.godot/imported/weapon_kopis_1.png-cedeb69d6c089e4ff530d8e8810b81e1.ctex"]
 
 [params]
 
